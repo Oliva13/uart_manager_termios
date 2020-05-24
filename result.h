@@ -1,0 +1,32 @@
+#ifndef _UTILS_UART_H_
+#define _UTILS_UART_H_
+
+#include "buffer.h"
+
+typedef enum
+{
+	PARSE_SUCCESS	= 0,
+	OPEN_EPOOL_WAIT_ERROR,
+	EPOOL_WORK_ERROR,
+	EPOOL_WORK_DONE,
+	READ_UART_EAGAIN,
+	READ_UART_ERROR,
+	READ_PIPE_ERROR,
+	WRITE_UART_ERROR,
+	WRITE_UART_EAGAIN,
+	MAIN_EPOOL_CREATE_ERROR,
+	MAIN_MKFIFO_CREATE_ERROR,
+	MAIN_PIPE_OPEN_ERROR,
+	MAIN_ADD_PIPE_TO_EPFD_ERROR,
+	MAIN_SERIAL_PORT_ERROR,
+	MAIN_ADD_UART_TO_EPFD_ERROR,
+	MAIN_CREATE_PTHREAD_ERROR
+	
+} result_t;
+
+
+void printf_result_pthread(result_t result);
+void printf_result_main(result_t result, th_param_t *p);
+
+#endif
+
